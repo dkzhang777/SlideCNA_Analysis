@@ -17,7 +17,7 @@ get_adata_counts <- function(adata) {
    }
 
 ### Make a seurat object
-make_seurat_annot <- function(cb,md,ft=TRUE){
+make_seurat_annot <- function(cb, md, ft=TRUE, seed = 1){
     so <- CreateSeuratObject(counts = cb,min.features = 0, min.cells = 3)
     so <- PercentageFeatureSet(so,pattern = "^MT-",col.name = "percent.mito")
     so <- NormalizeData(object = so)
@@ -25,10 +25,10 @@ make_seurat_annot <- function(cb,md,ft=TRUE){
     so <- ScaleData(object = so,vars.to.regress = c("nCount_RNA","percent.mito"))
     so <- RunPCA(object = so)
     so <- FindNeighbors(object = so)
-    so <- FindClusters(object = so,algorithm = 1)
-    so <- RunTSNE(object = so,dims = 1:10, check_duplicates=FALSE)
-    so <- RunUMAP(object = so,dims=1:10)
-    so <- AddMetaData(so,metadata = md)
+    so <- FindClusters(object = so,algorithm = 1,random.seed = seed)
+    so <- RunTSNE(object = so,dims = 1:10, check_duplicates = FALSE, seed.use = seed)
+    so <- RunUMAP(object = so, dims = 1:10, seed.use = seed)
+    so <- AddMetaData(so, metadata = md)
         
     return(so)   
 }
