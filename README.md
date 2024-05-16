@@ -26,8 +26,8 @@ install.packages("remotes")
 remotes::install_github("dmcable/RCTD")
 ```
 
-Install TACCO to run the bead splitting vignette:
-````
+Install TACCO to run the bead splitting vignette (independent of environment above):
+```
 conda env create -f "https://github.com/dkzhang777/SlideCNA_Analysis/blob/testing/envs/bead_split_env.yml"
 ```
 
