@@ -1,4 +1,4 @@
-name: SlideCNA_env
+name: SlideCNA_Analysis
 channels:
   - anaconda
   - bioconda
