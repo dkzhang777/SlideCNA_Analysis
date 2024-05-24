@@ -17,24 +17,24 @@ get_adata_counts <- function(adata) {
    }
 
 ### Make a seurat object
-make_seurat_annot <- function(cb, md, ft = TRUE, seed_FindClusters = 0, seed_RunTSNE = 1, seed_RunUMAP = 42){
+make_seurat_annot <- function(cb,md,ft=TRUE){
     so <- CreateSeuratObject(counts = cb,min.features = 0, min.cells = 3)
-    so <- PercentageFeatureSet(so, pattern = "^MT-",col.name = "percent.mito")
+    so <- PercentageFeatureSet(so,pattern = "^MT-",col.name = "percent.mito")
     so <- NormalizeData(object = so)
     so <- FindVariableFeatures(object = so)
-    so <- ScaleData(object = so,vars.to.regress = c("nCount_RNA", "percent.mito"))
+    so <- ScaleData(object = so,vars.to.regress = c("nCount_RNA","percent.mito"))
     so <- RunPCA(object = so)
     so <- FindNeighbors(object = so)
-    so <- FindClusters(object = so, algorithm = 1, random.seed = seed_FindClusters)
-    so <- RunTSNE(object = so,dims = 1:10, check_duplicates = FALSE, seed.use = seed_RunTSNE)
-    so <- RunUMAP(object = so, dims = 1:10, seed.use = seed_RunUMAP)
-    so <- AddMetaData(so, metadata = md)
+    so <- FindClusters(object = so,algorithm = 1)
+    so <- RunTSNE(object = so,dims = 1:10, check_duplicates=FALSE)
+    so <- RunUMAP(object = so,dims=1:10)
+    so <- AddMetaData(so,metadata = md)
         
     return(so)   
 }
 
 ### Set cluster type labels (malignant or non-malignant status)
-set_cluster_type <- function(md, normal_seurat_clusters = None) {
+set_cluster_type <- function(md, normal_seurat_clusters=None) {
     # use seurat cluster-based annotations of malignant vs non-malignant cell types if not already provided
     if(!('cluster_type' %in% colnames(md))) {
         md[,cluster_type:=ifelse(seurat_clusters%in%normal_seurat_clusters, 'Normal', "Malignant")]
@@ -43,7 +43,7 @@ set_cluster_type <- function(md, normal_seurat_clusters = None) {
 }
 
 ### Run enrichR
-run_enrichr=function(genes, ngenes){
-    res=as.data.table(enrichr(genes[1:ngenes], databases = c("GO_Biological_Process_2018")))
+run_enrichr=function(genes,ngenes){
+    res=as.data.table(enrichr(genes[1:ngenes],databases = c("GO_Biological_Process_2018")))
     return(res)
 }
