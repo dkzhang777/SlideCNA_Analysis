@@ -13,22 +13,9 @@ Create a clean environment with conda using the SlideCNA_env.yml file to run the
 conda env create -f "https://github.com/dkzhang777/SlideCNA_Analysis/envs/SlideCNA_env.yml"
 ```
 
-Install SlideCNA:
+and the bead_split_env.yml file to run the TACCO bead splitting vignette:
 ```
-library(devtools)
-devtools::install_github("dkzhang777/SlideCNA@main", force=TRUE)
-library(SlideCNA)
-```
-
-Install RCTD:
-```
-install.packages("remotes")
-remotes::install_github("dmcable/RCTD")
-```
-
-Install TACCO to run the bead splitting vignette (independent of environment above):
-```
-conda env create -f "https://github.com/dkzhang777/SlideCNA_Analysis/blob/testing/envs/bead_split_env.yml"
+conda env create -f "https://github.com/dkzhang777/SlideCNA_Analysis/bead_split_env.yml"
 ```
 
 (For older versions of conda one needs to download the environment.yml and use the local file for installation.)

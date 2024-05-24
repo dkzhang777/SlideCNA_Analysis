@@ -1,5 +1,5 @@
 ### Functions for RCTD implementation on Slide-seq data
-source("code/utils.R")
+source(glue("/ahg/regevdata/users/dzhang/projects/HTAPP_MBC/src/slide_CNV_official_v2/code/utils.R"))
 
 ### Make a reference object
 makeRef <- function(sn_adata, RCTD_dir) {    
