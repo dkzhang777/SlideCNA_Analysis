@@ -5,7 +5,7 @@ This repository contains vignettes to guide you in reproducing SlideCNA results 
 For more information about the SlideCNA workflow, please refer to documentation here: https://github.com/dkzhang777/SlideCNA .
 
 ### Data
-Data for the SlideCNA vignettes may be downloaded via [Zenodo](https://doi.org/10.5281/zenodo.10658097).
+Data for the SlideCNA vignettes may be downloaded via [Zenodo](https://doi.org/10.5281/zenodo.10658097) or found in the data directory.
 
 ### Conda environments
 Create a clean environment with conda using the SlideCNA_env.yml file to run the SlideCNA implementation vignettes:
