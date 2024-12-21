@@ -7,3 +7,4 @@ dependencies:
   - tacco
   - leidenalg
   - ipykernel
+  - polars
