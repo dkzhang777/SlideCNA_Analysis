@@ -36,8 +36,11 @@ conda env create -f "https://github.com/dkzhang777/SlideCNA_Analysis/blob/testin
 ### Example Notebooks
 1. SlideCNA implementation on Slide-seq metastatic breast cancer (sample HTAPP-895-SMP-7359)
 2. SlideCNA implementation on Single-nucleus RNA-seq metastatic breast cancer (sample HTAPP-895-SMP-7359)
-3. Bead splitting of Slide-seq metastatic breast cancer with [TACCO](https://www.nature.com/articles/s41587-023-01657-3) (sample HTAPP-895-SMP-7359)
-4. SlideCNA implementation on bead split Slide-seq metastatic breast cancer (sample HTAPP-895-SMP-7359)
+3. SlideCNA implementation on bead split Slide-seq metastatic breast cancer (sample HTAPP-895-SMP-7359)
+4. [RCTD](https://doi.org/10.1038/s41587-021-00830-w) annotation of Slide-seq beads (sample HTAPP-895-SMP-7359)
+5. Bead splitting of Slide-seq metastatic breast cancer with [TACCO](https://www.nature.com/articles/s41587-023-01657-3) (sample HTAPP-895-SMP-7359)
+6. SlideCNA implementation on mouse Slide-seq data
+7. Preprocessing of mouse dataset for input to SlideCNA
 
 ### Example Analysis
 1. Spearman Rank Correlation for CNA Scores Across Pairs of Methods and Modalities
